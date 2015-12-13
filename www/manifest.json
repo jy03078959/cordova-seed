@@ -1,0 +1,31 @@
+{
+  "files": {
+    "cordova-app-loader-complete": {
+      "version": "7908da2558c12aa4cfd83ea561da7a0bfd7ab66e",
+      "filename": "cordova-app-loader-complete.js"
+    },
+    "autoupdate": {
+      "version": "d61bb4f26b1b435d7bc4358f9d220c7b6b77d4b7",
+      "filename": "autoupdate.js"
+    },
+    "template": {
+      "version": "3e70f2873de3d9c91e31271c1a59b32e8002ac23",
+      "filename": "template.html"
+    },
+    "app": {
+      "version": "8c99369a825644e68e21433d78ed8b396351cc7d",
+      "filename": "app.js"
+    },
+    "style": {
+      "version": "6e76f36f27bf29402a70c8adfee0f84b8a595973",
+      "filename": "style.css"
+    }
+  },
+  "load": [
+    "cordova-app-loader-complete.js",
+    "autoupdate.js",
+    "app.js",
+    "style.css"
+  ],
+  "version": "5540a141c35d3529b0cefee6ca0eb3f5f6175f7f"
+}
