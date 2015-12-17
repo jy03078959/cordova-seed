@@ -35,7 +35,13 @@
 
                 // Safari doesn't support xhr.responseType = 'json'
                 // so the response is parsed
-                if (cb) cb(xhr.status === 200 || xhr.status === 0?JSON.parse(xhr.responseText):xhr);
+                var data = "";
+                try{
+                    data = JSON.parse(xhr.responseText)
+                }catch(e){
+                    data = xhr.responseText
+                }
+                if (cb) cb(xhr.status === 200 || xhr.status === 0?data:xhr);
             }
         };
 

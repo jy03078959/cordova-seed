@@ -1,0 +1,13 @@
+<div id="app" class="row-fluid">
+    <div id="loadinfo"></div>
+    <!-- <c-log></c-log>-->
+    <div id="page">
+        <div v-component="{{  currentView }}" v-transition="expand" keep-alive
+             transition-mode="out-in" params="{{pageParams}}">
+        </div>
+    </div>
+    <div id="dialog"></div>
+    <c-load></c-load>
+    <c-alert></c-alert>
+</div>
+<div id="init_loading" style="display: none;">加载中...</div>

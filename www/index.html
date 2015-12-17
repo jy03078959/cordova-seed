@@ -1,20 +1,35 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Cordova App Loader</title>
-    <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="autoupdate.js"></script>
-    <script type="text/javascript" src="cordova-app-loader-complete.js"></script>
-    <script type="text/javascript"
-            timeout="5100"
-            server="http://localhost:8089/"
-            manifest="manifest.json"
-            src="bootstrap.js"></script>
+    <meta charset="utf-8">
+    <title>haha</title>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap:cdvfile:https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="format-detection" content="telephone=no">
+
+    <style>
+        #init_loading {
+            position: fixed;
+            left: 0;
+            right: 0;
+            margin: 100px auto;
+            width: 50px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
 </body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript"
+        timeout="5100"
+        server="http://192.168.199.64:8089/cordova-seed/www/"
+        manifest="manifest.json"
+        src="bootstrap.js"></script>
 </html>

@@ -69,7 +69,6 @@
             BUNDLE_ROOT = BUNDLE_ROOT.substr(0,BUNDLE_ROOT.lastIndexOf('/')+1);
             BUNDLE_ROOT = 'cdvfile://localhost/bundle' + BUNDLE_ROOT;
         }
-
         function hash(files){
             var keys = Object.keys(files);
             keys.sort();
