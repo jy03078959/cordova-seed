@@ -51,6 +51,8 @@
         // Return request
         return xhr;
     };
+
+
 //------------------------------------------------------------------
 // Step 2: After fetching manifest (localStorage or XHR), load it
     function loadManifest(manifest,fromLocalStorage,timeout){
@@ -135,6 +137,6 @@
         });
 // Manifest was in localStorage. Load it immediatly.
     } else {
-        loadManifest(manifest,true,s.getAttribute('timeout') || 10000);
+        loadManifest(manifest,true, 10000);
     }
 })();

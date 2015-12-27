@@ -1,1 +1,48 @@
-<div id="init_loading" style="display: none;">加载中...</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>范票</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <meta name="renderer" content="webkit" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="format-detection" content="telephone=no">    <style>
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="all.css" />
+</head>
+<body>
+
+<div id="app" class="row-fluid">
+    <div id="pageWarp" class="page">
+        <c-header></c-header>
+        <div class="content">
+            <component :is="currentView" keep-alive
+                       transition="fade"
+                       transition-mode="out-in"
+                       params="{{pageParams}}">
+            </component>
+        </div>
+        <c-mainmenu></c-mainmenu>
+    </div>
+    <!--登陆模块-->
+    <div id="diglog">
+        <component :is="currentDialog" params="{{dialogParams}}">
+        </component>
+    </div>
+    <c-load></c-load>
+    <c-updata></c-updata>
+    <c-alert></c-alert>
+</div>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">/*resourcemap*/
+
+
+    require(['components/page/app']);
+</script>
+</body>
+</html>

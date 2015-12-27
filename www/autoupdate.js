@@ -6,19 +6,9 @@
 
     var Updata = function () {
         // Check for Cordova
-        var SERVER = 'http://192.168.199.64:8089/cordova-seed/www/';
 
         var fs = new CordovaPromiseFS({persistent: typeof cordova !== 'undefined'});
-
-        var loader = window.loader = new CordovaAppLoader({
-            fs: fs,
-            localRoot: 'app',
-            serverRoot: SERVER,
-            mode: 'mirror',
-            cacheBuster: true
-        });
-
-
+        var loader = null;
 
         function loadIndexHtml() {
             window.pegasus(Manifest.root + '_index.html').then(function (template) {
@@ -32,19 +22,43 @@
         return {
             updateAvailable: false,
             init: function () {
+
                 loadIndexHtml()
+            },
+            setConfig:function (server){
+
+                var dataOrg = {
+                    fs: fs,
+                    localRoot: 'app',
+                    serverRoot: server,
+                    mode: 'mirror',
+                    cacheBuster: true
+                }
+                loader = window.loader = new CordovaAppLoader(dataOrg);
             },
             check: function (success, error) {
                 var me = this;
+                if(!loader){
+                    console.log("必须初始化 updata的 loader");
+                    return
+                }
                 loader.check().then(function (updateAvailable) {
                     me.updateAvailable = updateAvailable;
-                    success();
+                    success(updateAvailable);
                 }, error);
             },
             download: function (onProgress,success, error) {
+                if(!loader){
+                    console.log("必须初始化 updata的 loader");
+                    return
+                }
                 loader.download(onProgress).then(success, error);
             },
             update: function () {
+                if(!loader){
+                    console.log("必须初始化 updata的 loader");
+                    return
+                }
                 loader.update();
             }
         }
@@ -53,10 +67,6 @@
 
     var updataMg = window.UpdateMg = new Updata();
     updataMg.init();
-    // 2. Cordova: On resume
-    document.addEventListener('resume', function () {
-        UpdateMg.check()
-    });
 
     window.BOOTSTRAP_OK = true;
 
